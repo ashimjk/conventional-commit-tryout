@@ -1,3 +1,5 @@
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/ashimjk/conventional-commit-tryout)
+
 # Conventional Commit Tryout
 
 ## Startup
