@@ -7,6 +7,8 @@
 - [Standard Version - Tool](https://github.com/conventional-changelog/standard-version)
 - [Conventional Github Releaser](https://github.com/conventional-changelog/releaser-tools/tree/master/packages/conventional-github-releaser)
 - [Conventional Commit for Maven](https://github.com/dwmkerr/standard-version)
+- [Create Semantic Module](https://github.com/jlegrone/create-semantic-module)
+- [Husky](https://typicode.github.io/husky/#/)
 
 ---
 
@@ -118,7 +120,7 @@ And to trigger it, we need to use `commit-msg` git hook.
 If this hook exists with a status other than 0, then commit fails.
 
 We can copy one of the sample file and paste it to `.git/hooks` directory. Also we need to make commit-msg
-script executable. To do that we can use `chomd +x commit-msg`.
+script executable. To do that we can use `chomd +x .git/hooks/commit-msg`.
 
 NOTE: To make `npx` available from anywhere, we need to use `$PATH` variable in the script.
 
@@ -128,10 +130,11 @@ These sample are nothing but plan bash script.
 - [Commit Message Sample 1](commit-msg-sample-1)
 - [Commit Message Sample 2](commit-msg-sample-2)
 
+---
 
 ## Git Hook - Using Husky
 
-### Installation
+### Setup
 ```shell
 # Install
 npm install husky --save-dev
@@ -145,3 +148,39 @@ npm set-script prepare "husky install"
 # Add Hook
 npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
 ```
+
+After the setup, any invalid commit message will be blocked. And error message will be shown
+along with explanation.
+
+---
+
+## Conventional Changelog CLI
+Generate a changelog from git metadata
+
+```shell
+# Install
+npm install conventional-changelog-cli --save-dev
+
+# Generate change log
+npx conventional-changelog
+
+# Generate change log using angular preset
+npx conventional-changelog -p angular
+
+# For first time
+npx conventional-changelog -p angular -i CHANGELOG.md -s -r 0
+
+# For others
+npx conventional-changelog -p angular -i CHANGELOG.md -s
+```
+
+---
+
+## Modules Important to Conventional Changelog Ecosystem
+- [conventional-changelog-cli](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-cli) - the full-featured command line interface
+- [standard-changelog](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/standard-changelog) - command line interface for the angular commit format.
+- [conventional-github-releaser](https://github.com/conventional-changelog/conventional-github-releaser) - Make a new GitHub release from git metadata
+- [conventional-recommended-bump](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-recommended-bump) - Get a recommended version bump based on conventional commits
+- [conventional-commits-detector](https://github.com/conventional-changelog/conventional-commits-detector) - Detect what commit message convention your repository is using
+- [commitizen](https://github.com/commitizen/cz-cli) - Simple commit conventions for internet citizens.
+- [commitlint](https://github.com/conventional-changelog/commitlint) - Lint commit messages
