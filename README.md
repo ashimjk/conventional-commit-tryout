@@ -177,12 +177,21 @@ npx conventional-changelog -p angular -i CHANGELOG.md -s
 ```
 
 We can also use `npm version [patch|minor|major]` command to bump the version and push the changes.
+We can add following command in `.npmrc` to format the commit message.
+
+```
+tag-version-prefix="v"
+message="chore(release): v%s"
+```
+
 For more information [follow the link](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-cli#with-npm-version)
 
 ---
 
 ## Conventional Github Releaser
 Make a new GitHub release from git metadata.
+
+First, we need to [create a new token](https://github.com/settings/tokens/new) and that token should have the scope `public_repo` (or `repo` for access to private repositories). Now, we can follow below steps to setup the github-release.
 
 ```shell
 # Install
@@ -194,6 +203,18 @@ npx conventional-github-releaser -t token
 # Generate release using angular preset
 conventional-github-releaser -p angular -t token
 ```
+
+---
+
+## Workflow
+- Make changes
+- Commit those changes
+- Bump version using `npm version [major|minor|patch]`
+  - It will update the version in `package.json`
+  - Create a change log
+  - Commit the changes and create tag
+- Push the changes
+- Create github release using `npm run github-release`
 
 ---
 
