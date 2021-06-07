@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/ashimjk/conventional-commit-tryout/compare/v1.0.0...v1.0.1) (2021-06-07)
+
+
+### Bug Fixes
+
+* update README.md and version ([29ee7e2](https://github.com/ashimjk/conventional-commit-tryout/commit/29ee7e2f0588d4791184986bc95fc7f730fdbafb))
+
+
+
 # 1.0.0 (2021-06-07)
 
 
