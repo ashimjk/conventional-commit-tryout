@@ -127,3 +127,21 @@ These sample are nothing but plan bash script.
 
 - [Commit Message Sample 1](commit-msg-sample-1)
 - [Commit Message Sample 2](commit-msg-sample-2)
+
+
+## Git Hook - Using Husky
+
+### Installation
+```shell
+# Install
+npm install husky --save-dev
+
+# Enable Git Hooks
+npx husky install
+
+# To automatically have Git hooks enabled after install
+npm set-script prepare "husky install"
+
+# Add Hook
+npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
+```
