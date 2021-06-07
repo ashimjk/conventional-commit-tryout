@@ -187,7 +187,10 @@ Make a new GitHub release from git metadata.
 npm install conventional-github-releaser --save-dev
 
 # Generate release
-npx conventional-github-releaser
+npx conventional-github-releaser -t token
+
+# Generate release using angular preset
+conventional-github-releaser -p angular -t token
 ```
 
 ---
