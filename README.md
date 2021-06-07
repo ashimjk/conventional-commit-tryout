@@ -186,7 +186,8 @@ Make a new GitHub release from git metadata.
 # Install
 npm install conventional-github-releaser --save-dev
 
-# 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
+# Generate release
+npx conventional-github-releaser
 ```
 
 ---
