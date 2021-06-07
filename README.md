@@ -6,7 +6,71 @@
 - [Semantic Release - Tool](https://github.com/semantic-release/semantic-release)
 - [Standard Version - Tool](https://github.com/conventional-changelog/standard-version)
 - [Conventional Github Releaser](https://github.com/conventional-changelog/releaser-tools/tree/master/packages/conventional-github-releaser)
+- [Conventional Commit for Maven](https://github.com/dwmkerr/standard-version)
 
+---
+
+## Conventional Commit
+Please go through the documentation for [more information](https://conventionalcommits.org).
+
+According to Conventional Commit, a commit message should be structured as follows.
+
+```
+<type>[(optional scope)]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Type
+- `feat` ~~> addition of some new features
+- `add` ~~> changes to add new capability or functions
+- `cut` ~~> removing the capability or functions
+- `fix` ~~> a bug fix
+- `bump` ~~> increasing the versions or dependency versions
+- `build` ~~> changes to build system or external dependencies
+- `make` ~~> change to the build process, or tooling, or infra
+- `ci` ~~> changes to CI configuration files and scripts
+- `doc` ~~> changes to the documentation
+- `test` ~~> adding missing tests or correcting existing tests
+- `chore` ~~> changes for housekeeping (avoiding this will force more meaningful message)
+- `refactor` ~~> a code change that neither fixes a bug nor adds a feature
+- `style` ~~> changes to the code that do not affect the meaning
+- `optimize/perf`: a code change that improves performance
+- `revert` ~~> reverting an accidental commit
+
+### Scope
+- Must not contain a periods(.) at the end
+- Must not capitalize the first letter
+- Do not use issue identifiers as scopes
+- Use imperatives
+
+### Footer
+Used for:
+- referencing breaking changes
+- sign-offs
+- tracking issue references
+- author information
+
+### Breaking Changes
+- a commit that has a footer `BREAKING CHANGE:`
+- appends a `!` after the type/scope, introduces a breaking API change (correlating with MAJOR in semantic versioning).
+- A BREAKING CHANGE can be part of commits of any type. This is also considered a special footer.
+
+```example
+## Commit message with description and breaking change footer
+
+feat: allow provided config object to extend other configs
+
+BREAKING CHANGE: `extends` key in config file is now used for extending other config files
+
+## Commit message with ! to draw attention to breaking change
+
+refactor!: drop support for Node 6
+```
+
+---
 
 ## [Commitizen](http://commitizen.github.io/cz-cli/)
 It is a tool to create a commit message. It will prompt you, to fill out any required commit fields.
@@ -27,3 +91,39 @@ it will commit with proper message.
 NOTE: Currently it doesn't support multi-line description, and to use it we need to provide
 `\n` as new line. Although it bit tedious, but will do the job.
 
+---
+
+## [Commitlint](https://commitlint.js.org/#/)
+Tool to lint the commit message
+
+### Installation
+```shell
+npm install --save-dev @commitlint/{cli,config-conventional}
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+```
+
+### How to use
+```shell
+echo 'foo: bar' | npx commitlint
+
+# Lint last commit from history
+npx commitlint --from=HEAD~1
+```
+
+## Git Hook - Commit Message
+Now, we can use `commitlint` to check whether commit message is valid or not.
+And to trigger it, we need to use `commit-msg` git hook.
+
+`commit-msg` hook get executed after the user has entered the message and before finishing the commit.
+If this hook exists with a status other than 0, then commit fails.
+
+We can copy one of the sample file and paste it to `.git/hooks` directory. Also we need to make commit-msg
+script executable. To do that we can use `chomd +x commit-msg`.
+
+NOTE: To make `npx` available from anywhere, we need to use `$PATH` variable in the script.
+
+### Sample
+These sample are nothing but plan bash script.
+
+- [Commit Message Sample 1](commit-msg-sample-1)
+- [Commit Message Sample 2](commit-msg-sample-2)
