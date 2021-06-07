@@ -174,6 +174,9 @@ npx conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 npx conventional-changelog -p angular -i CHANGELOG.md -s
 ```
 
+We can also use `npm version [patch|minor|major]` command to bump the version and push the changes.
+For more information [follow the link](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-cli#with-npm-version)
+
 ---
 
 ## Modules Important to Conventional Changelog Ecosystem
