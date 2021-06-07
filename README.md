@@ -25,4 +25,5 @@ We can `npx cz` command for git commit. It will ask a set of questions and after
 it will commit with proper message.
 
 NOTE: Currently it doesn't support multi-line description, and to use it we need to provide
-`\n` as new line.
+`\n` as new line. Although it bit tedious, but will do the job.
+
