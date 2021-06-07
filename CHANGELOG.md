@@ -3,6 +3,17 @@
 
 ### Bug Fixes
 
+* update changelog.md ([1e64336](https://github.com/ashimjk/conventional-commit-tryout/commit/1e64336532ab9ae890f9bb9008c218c9aeafa7bf))
+* update README.md ([d67c9e5](https://github.com/ashimjk/conventional-commit-tryout/commit/d67c9e55e0bca9caea77ef2242185380c6c26d25))
+* update README.md and version ([29ee7e2](https://github.com/ashimjk/conventional-commit-tryout/commit/29ee7e2f0588d4791184986bc95fc7f730fdbafb))
+
+
+
+## [1.0.1](https://github.com/ashimjk/conventional-commit-tryout/compare/v1.0.0...v1.0.1) (2021-06-07)
+
+
+### Bug Fixes
+
 * update README.md and version ([29ee7e2](https://github.com/ashimjk/conventional-commit-tryout/commit/29ee7e2f0588d4791184986bc95fc7f730fdbafb))
 
 
