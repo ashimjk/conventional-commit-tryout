@@ -179,6 +179,18 @@ For more information [follow the link](https://github.com/conventional-changelog
 
 ---
 
+## Conventional Github Releaser
+Make a new GitHub release from git metadata.
+
+```shell
+# Install
+npm install conventional-github-releaser --save-dev
+
+# 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
+```
+
+---
+
 ## Modules Important to Conventional Changelog Ecosystem
 - [conventional-changelog-cli](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-cli) - the full-featured command line interface
 - [standard-changelog](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/standard-changelog) - command line interface for the angular commit format.
